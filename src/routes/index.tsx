@@ -1,24 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
+import { Eye, EyeOff, CheckCircle2, MapPin, Target, GraduationCap, Clock3, ArrowRight } from "lucide-react";
+import { useState, type FormEvent } from "react";
+import { Brand } from "../components/brand";
+import { Button, fieldClass } from "../components/ui";
+import { pageMeta } from "../components/meta";
+export const Route=createFileRoute("/")({head:()=>pageMeta("Sign in","Sign in to discover matching jobs and build your personalized career roadmap."),component:Login});
+function Login(){const [show,setShow]=useState(false);const nav=useNavigate();function submit(e:FormEvent){e.preventDefault();nav({to:"/upload"})}return <main className="grid min-h-screen lg:grid-cols-[1.08fr_.92fr]"><section className="relative overflow-hidden bg-sidebar p-7 text-sidebar-foreground md:p-12 lg:p-16"><div className="absolute inset-0 subtle-grid opacity-10"/><div className="relative mx-auto flex h-full max-w-2xl flex-col"><Brand/><div className="my-auto py-16"><p className="mb-4 text-xs font-bold uppercase tracking-[.2em] text-sidebar-foreground/60">AI-powered career readiness</p><h1 className="max-w-xl text-4xl font-extrabold leading-tight md:text-6xl">Skill-Gap-to-Job Matching Agent</h1><p className="mt-5 text-lg text-sidebar-foreground/70">Find the skills. Find the job. Become ready.</p><div className="mt-10 grid gap-4 sm:grid-cols-2">{[[MapPin,"Find local job opportunities"],[Target,"Identify exact skill gaps"],[GraduationCap,"Get personalized courses"],[Clock3,"Know your time-to-ready"]].map(([Icon,t])=><div key={t as string} className="flex items-center gap-3 text-sm font-semibold"><span className="grid size-9 place-items-center rounded-lg bg-sidebar-foreground/10"><Icon size={18}/></span>{t as string}</div>)}</div></div><p className="text-xs text-sidebar-foreground/40">Career clarity, powered by your potential.</p></div></section><section className="flex items-center justify-center bg-card p-6 md:p-12"><form onSubmit={submit} className="w-full max-w-md"><div className="mb-9"><h2 className="text-3xl font-extrabold">Welcome back</h2><p className="mt-2 text-muted-foreground">Sign in to continue your career journey.</p></div><label className="mb-2 block text-sm font-bold">Email or username</label><input required className={fieldClass} placeholder="you@example.com"/><label className="mb-2 mt-5 block text-sm font-bold">Password</label><div className="relative"><input required type={show?"text":"password"} className={fieldClass} placeholder="Enter your password"/><button type="button" aria-label={show?"Hide password":"Show password"} onClick={()=>setShow(!show)} className="absolute right-3 top-3 text-muted-foreground">{show?<EyeOff size={19}/>:<Eye size={19}/>}</button></div><div className="my-5 flex items-center justify-between text-sm"><label className="flex items-center gap-2"><input type="checkbox" className="accent-primary"/>Remember me</label><button type="button" className="font-bold text-primary">Forgot password?</button></div><Button className="w-full" type="submit">Login <ArrowRight size={17}/></Button><button type="button" className="mt-3 flex min-h-11 w-full items-center justify-center gap-3 rounded-lg border bg-card text-sm font-bold"><span className="text-lg font-extrabold text-primary">G</span>Continue with Google</button><p className="mt-7 text-center text-sm text-muted-foreground">Don't have an account? <Link to="/upload" className="font-bold text-primary">Sign Up</Link></p></form></section></main>}
