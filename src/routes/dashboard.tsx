@@ -1,0 +1,1 @@
+import{createFileRoute}from"@tanstack/react-router";import{Dashboard}from"../components/app-views";import{pageMeta}from"../components/meta";export const Route=createFileRoute("/dashboard")({head:()=>pageMeta("Dashboard","Your personalized career readiness dashboard."),component:Dashboard});

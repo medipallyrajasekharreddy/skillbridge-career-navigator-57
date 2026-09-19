@@ -1,0 +1,1 @@
+import{createFileRoute}from"@tanstack/react-router";import{Roadmap}from"../components/app-views";import{pageMeta}from"../components/meta";export const Route=createFileRoute("/roadmap")({head:()=>pageMeta("Your career roadmap","Track your path from skill gaps to job readiness."),component:Roadmap});

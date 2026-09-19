@@ -1,0 +1,1 @@
+import{createFileRoute}from"@tanstack/react-router";import{Training}from"../components/app-views";import{pageMeta}from"../components/meta";export const Route=createFileRoute("/training")({head:()=>pageMeta("Personalized learning path","Courses selected to close your highest-priority skill gaps."),component:Training});

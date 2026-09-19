@@ -1,0 +1,1 @@
+import{createFileRoute}from"@tanstack/react-router";import{TimeReady}from"../components/app-views";import{pageMeta}from"../components/meta";export const Route=createFileRoute("/time-to-ready")({head:()=>pageMeta("Time-to-Ready","Estimate the focused learning time needed for your target role."),component:TimeReady});

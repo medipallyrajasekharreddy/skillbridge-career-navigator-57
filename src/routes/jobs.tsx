@@ -1,0 +1,1 @@
+import{createFileRoute}from"@tanstack/react-router";import{Jobs}from"../components/app-views";import{pageMeta}from"../components/meta";export const Route=createFileRoute("/jobs")({head:()=>pageMeta("Local job matches","Jobs matched to your skills, interests and location."),component:Jobs});
