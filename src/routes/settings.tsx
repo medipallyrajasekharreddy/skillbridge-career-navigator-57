@@ -1,0 +1,1 @@
+import{createFileRoute}from"@tanstack/react-router";import{SettingsPage}from"../components/app-views";import{pageMeta}from"../components/meta";export const Route=createFileRoute("/settings")({head:()=>pageMeta("Settings","Manage your SkillBridge profile and preferences."),component:SettingsPage});

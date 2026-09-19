@@ -1,0 +1,1 @@
+import{createFileRoute}from"@tanstack/react-router";import{SkillGaps}from"../components/app-views";import{pageMeta}from"../components/meta";export const Route=createFileRoute("/skill-gaps")({head:()=>pageMeta("Your skill gaps","Understand which skills to build for your target jobs."),component:SkillGaps});

@@ -1,0 +1,1 @@
+import{createFileRoute}from"@tanstack/react-router";import{Voice}from"../components/app-views";import{pageMeta}from"../components/meta";export const Route=createFileRoute("/voice-assistant")({head:()=>pageMeta("Career voice assistant","Ask questions about your jobs, skills and learning plan."),component:Voice});

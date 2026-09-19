@@ -10,33 +10,205 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as JobsRouteImport } from './routes/jobs'
+import { Route as ManualProfileRouteImport } from './routes/manual-profile'
+import { Route as ProcessingRouteImport } from './routes/processing'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as RoadmapRouteImport } from './routes/roadmap'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SkillGapsRouteImport } from './routes/skill-gaps'
+import { Route as TimeToReadyRouteImport } from './routes/time-to-ready'
+import { Route as TrainingRouteImport } from './routes/training'
+import { Route as UploadRouteImport } from './routes/upload'
+import { Route as VoiceAssistantRouteImport } from './routes/voice-assistant'
+import { Route as JobsJobIdRouteImport } from './routes/jobs.$jobId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JobsRoute = JobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ManualProfileRoute = ManualProfileRouteImport.update({
+  id: '/manual-profile',
+  path: '/manual-profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProcessingRoute = ProcessingRouteImport.update({
+  id: '/processing',
+  path: '/processing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoadmapRoute = RoadmapRouteImport.update({
+  id: '/roadmap',
+  path: '/roadmap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkillGapsRoute = SkillGapsRouteImport.update({
+  id: '/skill-gaps',
+  path: '/skill-gaps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TimeToReadyRoute = TimeToReadyRouteImport.update({
+  id: '/time-to-ready',
+  path: '/time-to-ready',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrainingRoute = TrainingRouteImport.update({
+  id: '/training',
+  path: '/training',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UploadRoute = UploadRouteImport.update({
+  id: '/upload',
+  path: '/upload',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VoiceAssistantRoute = VoiceAssistantRouteImport.update({
+  id: '/voice-assistant',
+  path: '/voice-assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JobsJobIdRoute = JobsJobIdRouteImport.update({
+  id: '/$jobId',
+  path: '/$jobId',
+  getParentRoute: () => JobsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/jobs': typeof JobsRouteWithChildren
+  '/manual-profile': typeof ManualProfileRoute
+  '/processing': typeof ProcessingRoute
+  '/profile': typeof ProfileRoute
+  '/roadmap': typeof RoadmapRoute
+  '/settings': typeof SettingsRoute
+  '/skill-gaps': typeof SkillGapsRoute
+  '/time-to-ready': typeof TimeToReadyRoute
+  '/training': typeof TrainingRoute
+  '/upload': typeof UploadRoute
+  '/voice-assistant': typeof VoiceAssistantRoute
+  '/jobs/$jobId': typeof JobsJobIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/jobs': typeof JobsRouteWithChildren
+  '/manual-profile': typeof ManualProfileRoute
+  '/processing': typeof ProcessingRoute
+  '/profile': typeof ProfileRoute
+  '/roadmap': typeof RoadmapRoute
+  '/settings': typeof SettingsRoute
+  '/skill-gaps': typeof SkillGapsRoute
+  '/time-to-ready': typeof TimeToReadyRoute
+  '/training': typeof TrainingRoute
+  '/upload': typeof UploadRoute
+  '/voice-assistant': typeof VoiceAssistantRoute
+  '/jobs/$jobId': typeof JobsJobIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/jobs': typeof JobsRouteWithChildren
+  '/manual-profile': typeof ManualProfileRoute
+  '/processing': typeof ProcessingRoute
+  '/profile': typeof ProfileRoute
+  '/roadmap': typeof RoadmapRoute
+  '/settings': typeof SettingsRoute
+  '/skill-gaps': typeof SkillGapsRoute
+  '/time-to-ready': typeof TimeToReadyRoute
+  '/training': typeof TrainingRoute
+  '/upload': typeof UploadRoute
+  '/voice-assistant': typeof VoiceAssistantRoute
+  '/jobs/$jobId': typeof JobsJobIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/jobs'
+    | '/manual-profile'
+    | '/processing'
+    | '/profile'
+    | '/roadmap'
+    | '/settings'
+    | '/skill-gaps'
+    | '/time-to-ready'
+    | '/training'
+    | '/upload'
+    | '/voice-assistant'
+    | '/jobs/$jobId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/jobs'
+    | '/manual-profile'
+    | '/processing'
+    | '/profile'
+    | '/roadmap'
+    | '/settings'
+    | '/skill-gaps'
+    | '/time-to-ready'
+    | '/training'
+    | '/upload'
+    | '/voice-assistant'
+    | '/jobs/$jobId'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/jobs'
+    | '/manual-profile'
+    | '/processing'
+    | '/profile'
+    | '/roadmap'
+    | '/settings'
+    | '/skill-gaps'
+    | '/time-to-ready'
+    | '/training'
+    | '/upload'
+    | '/voice-assistant'
+    | '/jobs/$jobId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DashboardRoute: typeof DashboardRoute
+  JobsRoute: typeof JobsRouteWithChildren
+  ManualProfileRoute: typeof ManualProfileRoute
+  ProcessingRoute: typeof ProcessingRoute
+  ProfileRoute: typeof ProfileRoute
+  RoadmapRoute: typeof RoadmapRoute
+  SettingsRoute: typeof SettingsRoute
+  SkillGapsRoute: typeof SkillGapsRoute
+  TimeToReadyRoute: typeof TimeToReadyRoute
+  TrainingRoute: typeof TrainingRoute
+  UploadRoute: typeof UploadRoute
+  VoiceAssistantRoute: typeof VoiceAssistantRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +220,124 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jobs': {
+      id: '/jobs'
+      path: '/jobs'
+      fullPath: '/jobs'
+      preLoaderRoute: typeof JobsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/manual-profile': {
+      id: '/manual-profile'
+      path: '/manual-profile'
+      fullPath: '/manual-profile'
+      preLoaderRoute: typeof ManualProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/processing': {
+      id: '/processing'
+      path: '/processing'
+      fullPath: '/processing'
+      preLoaderRoute: typeof ProcessingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmap': {
+      id: '/roadmap'
+      path: '/roadmap'
+      fullPath: '/roadmap'
+      preLoaderRoute: typeof RoadmapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skill-gaps': {
+      id: '/skill-gaps'
+      path: '/skill-gaps'
+      fullPath: '/skill-gaps'
+      preLoaderRoute: typeof SkillGapsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/time-to-ready': {
+      id: '/time-to-ready'
+      path: '/time-to-ready'
+      fullPath: '/time-to-ready'
+      preLoaderRoute: typeof TimeToReadyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/training': {
+      id: '/training'
+      path: '/training'
+      fullPath: '/training'
+      preLoaderRoute: typeof TrainingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/upload': {
+      id: '/upload'
+      path: '/upload'
+      fullPath: '/upload'
+      preLoaderRoute: typeof UploadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voice-assistant': {
+      id: '/voice-assistant'
+      path: '/voice-assistant'
+      fullPath: '/voice-assistant'
+      preLoaderRoute: typeof VoiceAssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jobs/$jobId': {
+      id: '/jobs/$jobId'
+      path: '/$jobId'
+      fullPath: '/jobs/$jobId'
+      preLoaderRoute: typeof JobsJobIdRouteImport
+      parentRoute: typeof JobsRoute
+    }
   }
 }
 
+interface JobsRouteChildren {
+  JobsJobIdRoute: typeof JobsJobIdRoute
+}
+
+const JobsRouteChildren: JobsRouteChildren = {
+  JobsJobIdRoute: JobsJobIdRoute,
+}
+
+const JobsRouteWithChildren = JobsRoute._addFileChildren(JobsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DashboardRoute: DashboardRoute,
+  JobsRoute: JobsRouteWithChildren,
+  ManualProfileRoute: ManualProfileRoute,
+  ProcessingRoute: ProcessingRoute,
+  ProfileRoute: ProfileRoute,
+  RoadmapRoute: RoadmapRoute,
+  SettingsRoute: SettingsRoute,
+  SkillGapsRoute: SkillGapsRoute,
+  TimeToReadyRoute: TimeToReadyRoute,
+  TrainingRoute: TrainingRoute,
+  UploadRoute: UploadRoute,
+  VoiceAssistantRoute: VoiceAssistantRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
