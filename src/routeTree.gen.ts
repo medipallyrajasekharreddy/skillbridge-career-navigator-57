@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ManualProfileRouteImport } from './routes/manual-profile'
 import { Route as ProcessingRouteImport } from './routes/processing'
+import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as UploadRouteImport } from './routes/upload'
 
 const IndexRoute = IndexRouteImport.update({
@@ -18,9 +20,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ManualProfileRoute = ManualProfileRouteImport.update({
+  id: '/manual-profile',
+  path: '/manual-profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProcessingRoute = ProcessingRouteImport.update({
   id: '/processing',
   path: '/processing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UploadRoute = UploadRouteImport.update({
@@ -31,31 +43,45 @@ const UploadRoute = UploadRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/manual-profile': typeof ManualProfileRoute
   '/processing': typeof ProcessingRoute
+  '/profile': typeof ProfileRoute
   '/upload': typeof UploadRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/manual-profile': typeof ManualProfileRoute
   '/processing': typeof ProcessingRoute
+  '/profile': typeof ProfileRoute
   '/upload': typeof UploadRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/manual-profile': typeof ManualProfileRoute
   '/processing': typeof ProcessingRoute
+  '/profile': typeof ProfileRoute
   '/upload': typeof UploadRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/processing' | '/upload'
+  fullPaths: '/' | '/manual-profile' | '/processing' | '/profile' | '/upload'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/processing' | '/upload'
-  id: '__root__' | '/' | '/processing' | '/upload'
+  to: '/' | '/manual-profile' | '/processing' | '/profile' | '/upload'
+  id:
+    | '__root__'
+    | '/'
+    | '/manual-profile'
+    | '/processing'
+    | '/profile'
+    | '/upload'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ManualProfileRoute: typeof ManualProfileRoute
   ProcessingRoute: typeof ProcessingRoute
+  ProfileRoute: typeof ProfileRoute
   UploadRoute: typeof UploadRoute
 }
 
@@ -68,11 +94,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/manual-profile': {
+      id: '/manual-profile'
+      path: '/manual-profile'
+      fullPath: '/manual-profile'
+      preLoaderRoute: typeof ManualProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/processing': {
       id: '/processing'
       path: '/processing'
       fullPath: '/processing'
       preLoaderRoute: typeof ProcessingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/upload': {
@@ -87,7 +127,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ManualProfileRoute: ManualProfileRoute,
   ProcessingRoute: ProcessingRoute,
+  ProfileRoute: ProfileRoute,
   UploadRoute: UploadRoute,
 }
 export const routeTree = rootRouteImport
