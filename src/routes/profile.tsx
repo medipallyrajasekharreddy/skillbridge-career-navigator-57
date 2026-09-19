@@ -1,0 +1,1 @@
+import {createFileRoute} from "@tanstack/react-router";import {ProfileView} from "../components/profile-view";import {pageMeta} from "../components/meta";export const Route=createFileRoute("/profile")({head:()=>pageMeta("Your profile","Review your extracted skills, experience, education and career interests."),component:ProfileView});
